@@ -1,0 +1,901 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EBE6D43F-1B48-4660-8036-5D7826B013AF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MusicApp</RootNamespace>
+    <AssemblyName>MusicApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.2\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.1\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.1\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpRepository.EfRepository">
+      <HintPath>..\packages\SharpRepository.EfRepository.1.4.1.0\lib\net40\SharpRepository.EfRepository.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpRepository.Ioc.Windsor">
+      <HintPath>..\packages\SharpRepository.Ioc.Windsor.1.3.6.14\lib\net40\SharpRepository.Ioc.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpRepository.Repository">
+      <HintPath>..\packages\SharpRepository.Repository.1.4.6.0\lib\net40\SharpRepository.Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.1\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Spatial, Version=5.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Spatial.5.6.1\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.1.1\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.1\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.1\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.1.1\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.1.1\lib\net45\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.1\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.1\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.1\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.1\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.1\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.1\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\ContainerBootstrapper.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Start\WindsorActivator.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\WebApi\AlbumsController.cs" />
+    <Compile Include="Controllers\WebApi\ArtistsController.cs" />
+    <Compile Include="Controllers\WebApi\SongsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Plumbing\CastleWindsorDependencyResolver.cs" />
+    <Compile Include="Plumbing\ControllersInstaller.cs" />
+    <Compile Include="Plumbing\WindsorControllerFactory.cs" />
+    <Compile Include="Plumbing\WindsorDependencyResolver.cs" />
+    <Compile Include="Plumbing\WindsorDependencyScope.cs" />
+    <Compile Include="Plumbing\WindsorWebApiInstaller.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Images\MusicImages\3rd Strike\Lost Angel [Bonus Track]\Thumbs.db" />
+    <None Include="Properties\PublishProfiles\Main.pubxml" />
+    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="Images\MusicImages\3rd Strike\Lost Angel [Bonus Track]\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\3rd Strike\Lost Angel [Bonus Track]\AlbumArt_{12CA3F10-0ABD-4A54-813B-263AB1F18C5A}_Large.jpg" />
+    <Content Include="Images\MusicImages\3rd Strike\Lost Angel [Bonus Track]\AlbumArt_{12CA3F10-0ABD-4A54-813B-263AB1F18C5A}_Small.jpg" />
+    <Content Include="Images\MusicImages\3rd Strike\Lost Angel [Bonus Track]\Folder.jpg" />
+    <Content Include="Images\MusicImages\3rd Strike\Lost Angel [Bonus Track]\ZuneArt_{00C7C417-375F-4D3C-A63C-D4EAD5C06777}.jpg" />
+    <Content Include="Images\MusicImages\3rd Strike\Lost Angel [Bonus Track]\ZuneArt_{50EE8214-E2D1-4336-9308-69FF69B23E9D}.jpg" />
+    <Content Include="Images\MusicImages\3rd Strike\Lost Angel [Bonus Track]\ZuneArt_{6F4DCF30-6209-43B0-B9C9-A731793D49A6}.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\eMOTIVe\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\eMOTIVe\AlbumArt_{579ADD59-B2C3-4FBC-90A8-9A0EFC31CBFA}_Large.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\eMOTIVe\AlbumArt_{579ADD59-B2C3-4FBC-90A8-9A0EFC31CBFA}_Small.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\eMOTIVe\Folder.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\Mer de Noms\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\Mer de Noms\AlbumArt_{F7A3874A-D7EB-4702-B1B0-67AFF704304F}_Large.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\Mer de Noms\AlbumArt_{F7A3874A-D7EB-4702-B1B0-67AFF704304F}_Small.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\Mer de Noms\Folder.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\Thirteenth Step\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\Thirteenth Step\AlbumArt_{0F8D1C91-77AE-40C0-9CC2-83D5E5A5D64D}_Large.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\Thirteenth Step\AlbumArt_{0F8D1C91-77AE-40C0-9CC2-83D5E5A5D64D}_Small.jpg" />
+    <Content Include="Images\MusicImages\A Perfect Circle\Thirteenth Step\Folder.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Back Through Time\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Back Through Time\AlbumArt_{CD961F19-FD07-4D32-ADE4-90910C28EBB8}_Large.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Back Through Time\AlbumArt_{CD961F19-FD07-4D32-ADE4-90910C28EBB8}_Small.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Back Through Time\Folder.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Black Sails at Midnight\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Black Sails at Midnight\AlbumArt_{B50EAF58-1DBB-4151-BB11-453BBD497F14}_Large.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Black Sails at Midnight\AlbumArt_{B50EAF58-1DBB-4151-BB11-453BBD497F14}_Small.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Black Sails at Midnight\Folder.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Black Sails at Midnight\ZuneArt_{4A884BB3-88CE-4A05-8A9F-781A1DB2BFD9}.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Black Sails at Midnight\ZuneArt_{6E68727A-507E-4C81-8FA8-F0514CA42396}.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Captain Morgan%27s Revenge\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Captain Morgan%27s Revenge\AlbumArt_{B50EAF58-1DBB-4151-BB11-453BBD497F14}_Large.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Captain Morgan%27s Revenge\AlbumArt_{B50EAF58-1DBB-4151-BB11-453BBD497F14}_Small.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Captain Morgan%27s Revenge\Folder.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Captain Morgan%27s Revenge\ZuneArt_{4A4297B3-C9C6-406A-AA70-271B523D1432}.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Captain Morgan%27s Revenge\ZuneArt_{65CCAAE9-354D-46A4-AD74-3D03F5CA306B}.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Leviathan\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Leviathan\AlbumArt_{A8E259E9-7E3E-419F-9873-187582265F2C}_Large.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Leviathan\AlbumArt_{A8E259E9-7E3E-419F-9873-187582265F2C}_Small.jpg" />
+    <Content Include="Images\MusicImages\Alestorm\Leviathan\Folder.jpg" />
+    <Content Include="Images\MusicImages\All That Remains\Overcome\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\All That Remains\Overcome\AlbumArt_{3F991A91-F8E0-4D75-BEE1-795B78F45C0B}_Large.jpg" />
+    <Content Include="Images\MusicImages\All That Remains\Overcome\AlbumArt_{3F991A91-F8E0-4D75-BEE1-795B78F45C0B}_Small.jpg" />
+    <Content Include="Images\MusicImages\All That Remains\Overcome\Folder.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Deceiver of the Gods\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Deceiver of the Gods\AlbumArt_{2D74A6B4-2B03-43D7-93E6-AF8758B23AAE}_Large.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Deceiver of the Gods\AlbumArt_{2D74A6B4-2B03-43D7-93E6-AF8758B23AAE}_Small.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Deceiver of the Gods\Folder.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Fate of Norns\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Fate of Norns\AlbumArt_{CF33E77E-3D08-4014-831B-1EC9DA6F0863}_Large.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Fate of Norns\AlbumArt_{CF33E77E-3D08-4014-831B-1EC9DA6F0863}_Small.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Fate of Norns\Folder.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Once Sent From the Golden Hall [Bonus Disc] Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Once Sent From the Golden Hall [Bonus Disc] Disc 1\AlbumArt_{B3843696-F57D-4368-A256-572B78D1F8B8}_Large.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Once Sent From the Golden Hall [Bonus Disc] Disc 1\AlbumArt_{B3843696-F57D-4368-A256-572B78D1F8B8}_Small.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Once Sent From the Golden Hall [Bonus Disc] Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Once Sent From the Golden Hall [Bonus Disc] Disc 2\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Once Sent From the Golden Hall [Bonus Disc] Disc 2\AlbumArt_{C760E702-4C3D-4878-9074-C3E74037C4E6}_Large.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Once Sent From the Golden Hall [Bonus Disc] Disc 2\AlbumArt_{C760E702-4C3D-4878-9074-C3E74037C4E6}_Small.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Once Sent From the Golden Hall [Bonus Disc] Disc 2\Folder.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Twilight of the Thunder God Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Twilight of the Thunder God Disc 1\AlbumArt_{58CEDE56-A9FB-487B-83C3-3BE68C5312DD}_Large.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Twilight of the Thunder God Disc 1\AlbumArt_{58CEDE56-A9FB-487B-83C3-3BE68C5312DD}_Small.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\Twilight of the Thunder God Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\With Oden on Our Side [Bonus Disc] Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\With Oden on Our Side [Bonus Disc] Disc 1\AlbumArt_{FBE021DF-85DF-4C44-A1F1-92813A583D1D}_Large.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\With Oden on Our Side [Bonus Disc] Disc 1\AlbumArt_{FBE021DF-85DF-4C44-A1F1-92813A583D1D}_Small.jpg" />
+    <Content Include="Images\MusicImages\Amon Amarth\With Oden on Our Side [Bonus Disc] Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\As I Lay Dying\Shadows Are Security\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\As I Lay Dying\Shadows Are Security\AlbumArt_{2373C924-C5AC-4410-8FD5-586A948495F0}_Large.jpg" />
+    <Content Include="Images\MusicImages\As I Lay Dying\Shadows Are Security\AlbumArt_{2373C924-C5AC-4410-8FD5-586A948495F0}_Small.jpg" />
+    <Content Include="Images\MusicImages\As I Lay Dying\Shadows Are Security\Folder.jpg" />
+    <Content Include="Images\MusicImages\Atmosphere\When Life Gives You Lemons, You Paint That Shit Gold\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Atmosphere\When Life Gives You Lemons, You Paint That Shit Gold\AlbumArt_{AE86DE70-BAF4-486C-8828-EA30B17B8880}_Large.jpg" />
+    <Content Include="Images\MusicImages\Atmosphere\When Life Gives You Lemons, You Paint That Shit Gold\AlbumArt_{AE86DE70-BAF4-486C-8828-EA30B17B8880}_Small.jpg" />
+    <Content Include="Images\MusicImages\Atmosphere\When Life Gives You Lemons, You Paint That Shit Gold\Folder.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\A Death-Grip on Yesterday Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\A Death-Grip on Yesterday Disc 1\AlbumArt_{23D61E7A-80CC-41EE-9278-FF54FFC3815C}_Large.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\A Death-Grip on Yesterday Disc 1\AlbumArt_{23D61E7A-80CC-41EE-9278-FF54FFC3815C}_Small.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\A Death-Grip on Yesterday Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\Congregation of the Damned\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\Congregation of the Damned\AlbumArt_{C9E2C9EA-4EA2-4E43-8AE7-A3076B98D14F}_Large.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\Congregation of the Damned\AlbumArt_{C9E2C9EA-4EA2-4E43-8AE7-A3076B98D14F}_Small.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\Congregation of the Damned\Folder.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\Lead Sails Paper Anchor\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\Lead Sails Paper Anchor\AlbumArt_{6259C4AC-449E-49B4-9E62-B37CF6B49049}_Large.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\Lead Sails Paper Anchor\AlbumArt_{6259C4AC-449E-49B4-9E62-B37CF6B49049}_Small.jpg" />
+    <Content Include="Images\MusicImages\Atreyu\Lead Sails Paper Anchor\Folder.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Paranoid\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Paranoid\AlbumArt_{E0349966-F796-46D2-9578-9AA098DD30EA}_Large.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Paranoid\AlbumArt_{E0349966-F796-46D2-9578-9AA098DD30EA}_Small.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Paranoid\Folder.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Reunion Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Reunion Disc 1\AlbumArt_{B095CF42-78A1-4179-9239-FDA4D8F46EC7}_Large.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Reunion Disc 1\AlbumArt_{B095CF42-78A1-4179-9239-FDA4D8F46EC7}_Small.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Reunion Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Reunion Disc 2\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Reunion Disc 2\AlbumArt_{6A8B487D-263A-4E42-9F13-574E2491E6DA}_Large.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Reunion Disc 2\AlbumArt_{6A8B487D-263A-4E42-9F13-574E2491E6DA}_Small.jpg" />
+    <Content Include="Images\MusicImages\Black Sabbath\Reunion Disc 2\Folder.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\A Night at the Opera\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\A Night at the Opera\AlbumArt_{32383EB0-FFFC-465A-ABE8-438B185A75A8}_Large.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\A Night at the Opera\AlbumArt_{32383EB0-FFFC-465A-ABE8-438B185A75A8}_Small.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\A Night at the Opera\Folder.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\At the Edge of Time [Deluxe Edition] Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\At the Edge of Time [Deluxe Edition] Disc 1\AlbumArt_{C8334BAD-3753-4B19-A1D4-6599B3B2D2EC}_Large.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\At the Edge of Time [Deluxe Edition] Disc 1\AlbumArt_{C8334BAD-3753-4B19-A1D4-6599B3B2D2EC}_Small.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\At the Edge of Time [Deluxe Edition] Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\At the Edge of Time [Deluxe Edition] Disc 2\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\At the Edge of Time [Deluxe Edition] Disc 2\AlbumArt_{9C1FD333-0DE3-4A93-8703-BFCB14E9172A}_Large.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\At the Edge of Time [Deluxe Edition] Disc 2\AlbumArt_{9C1FD333-0DE3-4A93-8703-BFCB14E9172A}_Small.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\At the Edge of Time [Deluxe Edition] Disc 2\Folder.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Forgotten Tales [Japan Bonus Tracks]\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Forgotten Tales [Japan Bonus Tracks]\AlbumArt_{C3DB42DC-E858-4734-9CB4-EE0936E791F5}_Large.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Forgotten Tales [Japan Bonus Tracks]\AlbumArt_{C3DB42DC-E858-4734-9CB4-EE0936E791F5}_Small.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Forgotten Tales [Japan Bonus Tracks]\Folder.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Imaginations from the Other Side\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Imaginations from the Other Side\AlbumArt_{8F0B9E54-7DF2-4939-A459-E7638D04B9C2}_Large.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Imaginations from the Other Side\AlbumArt_{8F0B9E54-7DF2-4939-A459-E7638D04B9C2}_Small.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Imaginations from the Other Side\Folder.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Nightfall in Middle-Earth [Bonus Track]\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Nightfall in Middle-Earth [Bonus Track]\AlbumArt_{631351B0-69E5-46D6-A565-D5D09DF3912A}_Large.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Nightfall in Middle-Earth [Bonus Track]\AlbumArt_{631351B0-69E5-46D6-A565-D5D09DF3912A}_Small.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Nightfall in Middle-Earth [Bonus Track]\Folder.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Somewhere Far Beyond [Bonus Tracks]\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Somewhere Far Beyond [Bonus Tracks]\AlbumArt_{0FBE715B-4745-4E20-9374-A96567C7991D}_Large.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Somewhere Far Beyond [Bonus Tracks]\AlbumArt_{0FBE715B-4745-4E20-9374-A96567C7991D}_Small.jpg" />
+    <Content Include="Images\MusicImages\Blind Guardian\Somewhere Far Beyond [Bonus Tracks]\Folder.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Fever\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Fever\AlbumArt_{154F76C2-5335-4B7A-B16F-283083E62CB8}_Large.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Fever\AlbumArt_{154F76C2-5335-4B7A-B16F-283083E62CB8}_Small.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Fever\Folder.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Scream Aim Fire [CD-DVD] Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Scream Aim Fire [CD-DVD] Disc 1\AlbumArt_{EF4BFC02-643A-4A04-AB52-17894D2CF5B7}_Large.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Scream Aim Fire [CD-DVD] Disc 1\AlbumArt_{EF4BFC02-643A-4A04-AB52-17894D2CF5B7}_Small.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Scream Aim Fire [CD-DVD] Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Temper Temper [Deluxe Edition]\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Temper Temper [Deluxe Edition]\AlbumArt_{1648BA47-FBDE-4C03-81A5-C46DD67E0BD6}_Large.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Temper Temper [Deluxe Edition]\AlbumArt_{1648BA47-FBDE-4C03-81A5-C46DD67E0BD6}_Small.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\Temper Temper [Deluxe Edition]\Folder.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\The Poison [Deluxe CD-DVD] Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\The Poison [Deluxe CD-DVD] Disc 1\AlbumArt_{C916C5B7-9522-4321-A1C6-89F1F9F14A6D}_Large.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\The Poison [Deluxe CD-DVD] Disc 1\AlbumArt_{C916C5B7-9522-4321-A1C6-89F1F9F14A6D}_Small.jpg" />
+    <Content Include="Images\MusicImages\Bullet for My Valentine\The Poison [Deluxe CD-DVD] Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Carl Stalling Project\The Carl Stalling Project- Music from Warner Bros. Cartoons 1936-1958\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Carl Stalling Project\The Carl Stalling Project- Music from Warner Bros. Cartoons 1936-1958\AlbumArt_{2FDA839F-581E-45B4-A5CD-A84EE3669963}_Large.jpg" />
+    <Content Include="Images\MusicImages\Carl Stalling Project\The Carl Stalling Project- Music from Warner Bros. Cartoons 1936-1958\AlbumArt_{2FDA839F-581E-45B4-A5CD-A84EE3669963}_Small.jpg" />
+    <Content Include="Images\MusicImages\Carl Stalling Project\The Carl Stalling Project- Music from Warner Bros. Cartoons 1936-1958\Folder.jpg" />
+    <Content Include="Images\MusicImages\Corey Stevens &amp; Texas Flood\Blue Drops of Rain\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Corey Stevens &amp; Texas Flood\Blue Drops of Rain\AlbumArt_{9F208499-6F8B-4346-B372-613C8C5506E3}_Large.jpg" />
+    <Content Include="Images\MusicImages\Corey Stevens &amp; Texas Flood\Blue Drops of Rain\AlbumArt_{9F208499-6F8B-4346-B372-613C8C5506E3}_Small.jpg" />
+    <Content Include="Images\MusicImages\Corey Stevens &amp; Texas Flood\Blue Drops of Rain\Folder.jpg" />
+    <Content Include="Images\MusicImages\Corey Stevens &amp; Texas Flood\Blue Drops of Rain\ZuneArt_{1FFE2F3B-1C4B-408C-9B50-F99B2D1EB82A}.jpg" />
+    <Content Include="Images\MusicImages\Corey Stevens &amp; Texas Flood\Blue Drops of Rain\ZuneArt_{74531FB2-62E5-48D4-97DF-AA7C0C0DB109}.jpg" />
+    <Content Include="Images\MusicImages\Corey Stevens &amp; Texas Flood\Blue Drops of Rain\ZuneArt_{7EBDD241-0E00-4879-A4D5-5FB5708B0AE5}.jpg" />
+    <Content Include="Images\MusicImages\Eels\Beautiful Freak\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Eels\Beautiful Freak\AlbumArt_{063597A0-5B4B-4790-AD48-BCA82D32E768}_Large.jpg" />
+    <Content Include="Images\MusicImages\Eels\Beautiful Freak\AlbumArt_{063597A0-5B4B-4790-AD48-BCA82D32E768}_Small.jpg" />
+    <Content Include="Images\MusicImages\Eels\Beautiful Freak\Folder.jpg" />
+    <Content Include="Images\MusicImages\Eels\Blinking Lights and Other Revelations Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Eels\Blinking Lights and Other Revelations Disc 1\AlbumArt_{F81761C1-84A1-478C-AD2A-DE3E95462917}_Large.jpg" />
+    <Content Include="Images\MusicImages\Eels\Blinking Lights and Other Revelations Disc 1\AlbumArt_{F81761C1-84A1-478C-AD2A-DE3E95462917}_Small.jpg" />
+    <Content Include="Images\MusicImages\Eels\Blinking Lights and Other Revelations Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Eels\Blinking Lights and Other Revelations Disc 1\ZuneArt_{1E608024-A50E-4D9A-80CB-DAB343FFE389}.jpg" />
+    <Content Include="Images\MusicImages\Eels\Blinking Lights and Other Revelations Disc 1\ZuneArt_{2DCFB75A-8983-4BC2-A1DD-CA9550AFE90A}.jpg" />
+    <Content Include="Images\MusicImages\Eels\Blinking Lights and Other Revelations Disc 1\ZuneArt_{BE3B4EA2-20AB-4A71-896E-3398AAA05092}.jpg" />
+    <Content Include="Images\MusicImages\Eels\Blinking Lights and Other Revelations Disc 2\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Eels\Blinking Lights and Other Revelations Disc 2\AlbumArt_{D5D53962-E3CB-4929-AE99-1A1329A7CF1A}_Large.jpg" />
+    <Content Include="Images\MusicImages\Eels\Blinking Lights and Other Revelations Disc 2\AlbumArt_{D5D53962-E3CB-4929-AE99-1A1329A7CF1A}_Small.jpg" />
+    <Content Include="Images\MusicImages\Eels\Blinking Lights and Other Revelations Disc 2\Folder.jpg" />
+    <Content Include="Images\MusicImages\Eels\Daisies of the Galaxy\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Eels\Daisies of the Galaxy\AlbumArt_{242B84C7-F0CA-4648-9738-719B6673B8A6}_Large.jpg" />
+    <Content Include="Images\MusicImages\Eels\Daisies of the Galaxy\AlbumArt_{242B84C7-F0CA-4648-9738-719B6673B8A6}_Small.jpg" />
+    <Content Include="Images\MusicImages\Eels\Daisies of the Galaxy\Folder.jpg" />
+    <Content Include="Images\MusicImages\Eels\Electro-Shock Blues\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Eels\Electro-Shock Blues\AlbumArt_{9FC5E149-557C-43E0-A7F4-F4223BA9C807}_Large.jpg" />
+    <Content Include="Images\MusicImages\Eels\Electro-Shock Blues\AlbumArt_{9FC5E149-557C-43E0-A7F4-F4223BA9C807}_Small.jpg" />
+    <Content Include="Images\MusicImages\Eels\Electro-Shock Blues\Folder.jpg" />
+    <Content Include="Images\MusicImages\Eels\Shootenanny!\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Eels\Shootenanny!\AlbumArt_{EFFD6792-91A2-496E-856F-A0D033848C12}_Large.jpg" />
+    <Content Include="Images\MusicImages\Eels\Shootenanny!\AlbumArt_{EFFD6792-91A2-496E-856F-A0D033848C12}_Small.jpg" />
+    <Content Include="Images\MusicImages\Eels\Shootenanny!\Folder.jpg" />
+    <Content Include="Images\MusicImages\Eminem\Recovery\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Eminem\Recovery\AlbumArt_{83E282C5-EE33-499C-A63F-04A3229DF427}_Large.jpg" />
+    <Content Include="Images\MusicImages\Eminem\Recovery\AlbumArt_{83E282C5-EE33-499C-A63F-04A3229DF427}_Small.jpg" />
+    <Content Include="Images\MusicImages\Eminem\Recovery\Folder.jpg" />
+    <Content Include="Images\MusicImages\Eminem\The Eminem Show\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Eminem\The Eminem Show\AlbumArt_{8792034B-4220-4919-9A4E-0449829823FE}_Large.jpg" />
+    <Content Include="Images\MusicImages\Eminem\The Eminem Show\AlbumArt_{8792034B-4220-4919-9A4E-0449829823FE}_Small.jpg" />
+    <Content Include="Images\MusicImages\Eminem\The Eminem Show\Folder.jpg" />
+    <Content Include="Images\MusicImages\Eminem\The Marshall Mathers LP\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Eminem\The Marshall Mathers LP\AlbumArt_{5786C6BA-0830-4EA4-BB8E-F69E7231AC07}_Large.jpg" />
+    <Content Include="Images\MusicImages\Eminem\The Marshall Mathers LP\AlbumArt_{5786C6BA-0830-4EA4-BB8E-F69E7231AC07}_Small.jpg" />
+    <Content Include="Images\MusicImages\Eminem\The Marshall Mathers LP\Folder.jpg" />
+    <Content Include="Images\MusicImages\Ensiferum\Dragonheads\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Ensiferum\Dragonheads\AlbumArt_{DFBD1411-3A70-45E5-A0E6-60D45623FFCD}_Large.jpg" />
+    <Content Include="Images\MusicImages\Ensiferum\Dragonheads\AlbumArt_{DFBD1411-3A70-45E5-A0E6-60D45623FFCD}_Small.jpg" />
+    <Content Include="Images\MusicImages\Ensiferum\Dragonheads\Folder.jpg" />
+    <Content Include="Images\MusicImages\Ensiferum\Unsung Heroes\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Ensiferum\Unsung Heroes\AlbumArt_{1CE36D94-588F-40D8-AB4D-74494954801D}_Large.jpg" />
+    <Content Include="Images\MusicImages\Ensiferum\Unsung Heroes\AlbumArt_{1CE36D94-588F-40D8-AB4D-74494954801D}_Small.jpg" />
+    <Content Include="Images\MusicImages\Ensiferum\Unsung Heroes\Folder.jpg" />
+    <Content Include="Images\MusicImages\Escape the Fate\This War Is Ours\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Escape the Fate\This War Is Ours\AlbumArt_{55B7CE8D-20DA-481E-A004-923D0BF10FDF}_Large.jpg" />
+    <Content Include="Images\MusicImages\Escape the Fate\This War Is Ours\AlbumArt_{55B7CE8D-20DA-481E-A004-923D0BF10FDF}_Small.jpg" />
+    <Content Include="Images\MusicImages\Escape the Fate\This War Is Ours\Folder.jpg" />
+    <Content Include="Images\MusicImages\Fat\Fat\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Fat\Fat\AlbumArt_{D66F8445-3D72-4CA1-B609-945AE02AB2D2}_Large.jpg" />
+    <Content Include="Images\MusicImages\Fat\Fat\AlbumArt_{D66F8445-3D72-4CA1-B609-945AE02AB2D2}_Small.jpg" />
+    <Content Include="Images\MusicImages\Fat\Fat\Folder.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Beautiful Garbage\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Beautiful Garbage\AlbumArt_{3E90A43E-95F2-4CC9-BACE-A132D49A303E}_Large.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Beautiful Garbage\AlbumArt_{3E90A43E-95F2-4CC9-BACE-A132D49A303E}_Small.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Beautiful Garbage\Folder.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Bleed Like Me\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Bleed Like Me\AlbumArt_{EF321003-44F1-4484-A0CA-0A1B5177B918}_Large.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Bleed Like Me\AlbumArt_{EF321003-44F1-4484-A0CA-0A1B5177B918}_Small.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Bleed Like Me\Folder.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Bleed Like Me\ZuneArt_{06429974-EF0B-44F2-8584-3076D1C2C142}.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Bleed Like Me\ZuneArt_{1939415B-26E7-4447-B21E-CEF51B8347B8}.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Bleed Like Me\ZuneArt_{D66FBB1C-E903-4DC2-B09B-ED7E5A44506C}.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Garbage\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Garbage\AlbumArt_{BFE1EF90-2D9E-4EA7-BA2C-A53BA94F45CB}_Large.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Garbage\AlbumArt_{BFE1EF90-2D9E-4EA7-BA2C-A53BA94F45CB}_Small.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Garbage\Folder.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Version 2.0\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Version 2.0\AlbumArt_{9549A55B-B5C4-40A4-9D77-08E81419DD96}_Large.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Version 2.0\AlbumArt_{9549A55B-B5C4-40A4-9D77-08E81419DD96}_Small.jpg" />
+    <Content Include="Images\MusicImages\Garbage\Version 2.0\Folder.jpg" />
+    <Content Include="Images\MusicImages\Guns N%27 Roses\Greatest Hits\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Guns N%27 Roses\Greatest Hits\AlbumArt_{DCB1944F-23D1-4627-99AA-5FC3E14568CB}_Large.jpg" />
+    <Content Include="Images\MusicImages\Guns N%27 Roses\Greatest Hits\AlbumArt_{DCB1944F-23D1-4627-99AA-5FC3E14568CB}_Small.jpg" />
+    <Content Include="Images\MusicImages\Guns N%27 Roses\Greatest Hits\AlbumArt_{E5F563C2-A323-4437-8ADA-D2B70DE5C96A}_Large.jpg" />
+    <Content Include="Images\MusicImages\Guns N%27 Roses\Greatest Hits\Folder.jpg" />
+    <Content Include="Images\MusicImages\In This Moment\A Star-Crossed Wasteland\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\In This Moment\A Star-Crossed Wasteland\AlbumArt_{D085733B-BD78-44F5-AE0D-6D7BEF4CCFBB}_Large.jpg" />
+    <Content Include="Images\MusicImages\In This Moment\A Star-Crossed Wasteland\AlbumArt_{D085733B-BD78-44F5-AE0D-6D7BEF4CCFBB}_Small.jpg" />
+    <Content Include="Images\MusicImages\In This Moment\A Star-Crossed Wasteland\Folder.jpg" />
+    <Content Include="Images\MusicImages\In This Moment\Beautiful Tragedy\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\In This Moment\Beautiful Tragedy\AlbumArt_{AABE2F0F-A60E-4C4E-96D0-9AAB0E8EBFF3}_Large.jpg" />
+    <Content Include="Images\MusicImages\In This Moment\Beautiful Tragedy\AlbumArt_{AABE2F0F-A60E-4C4E-96D0-9AAB0E8EBFF3}_Small.jpg" />
+    <Content Include="Images\MusicImages\In This Moment\Beautiful Tragedy\Folder.jpg" />
+    <Content Include="Images\MusicImages\Jimi Hendrix Experience\The Ultimate Experience\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Jimi Hendrix Experience\The Ultimate Experience\AlbumArt_{0DA2BADF-9740-43A9-BA1A-51BE7692C3BB}_Large.jpg" />
+    <Content Include="Images\MusicImages\Jimi Hendrix Experience\The Ultimate Experience\AlbumArt_{0DA2BADF-9740-43A9-BA1A-51BE7692C3BB}_Small.jpg" />
+    <Content Include="Images\MusicImages\Jimi Hendrix Experience\The Ultimate Experience\Folder.jpg" />
+    <Content Include="Images\MusicImages\Jimmy Page &amp; Robert Plant\Walking Into Clarksdale\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Jimmy Page &amp; Robert Plant\Walking Into Clarksdale\AlbumArt_{0CD6277D-B836-4FFA-85FB-299A1725BA79}_Large.jpg" />
+    <Content Include="Images\MusicImages\Jimmy Page &amp; Robert Plant\Walking Into Clarksdale\AlbumArt_{0CD6277D-B836-4FFA-85FB-299A1725BA79}_Small.jpg" />
+    <Content Include="Images\MusicImages\Jimmy Page &amp; Robert Plant\Walking Into Clarksdale\Folder.jpg" />
+    <Content Include="Images\MusicImages\Lamb of God\Resolution\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Lamb of God\Resolution\AlbumArt_{FE60954D-C594-4985-8A71-09006995B3E2}_Large.jpg" />
+    <Content Include="Images\MusicImages\Lamb of God\Resolution\AlbumArt_{FE60954D-C594-4985-8A71-09006995B3E2}_Small.jpg" />
+    <Content Include="Images\MusicImages\Lamb of God\Resolution\Folder.jpg" />
+    <Content Include="Images\MusicImages\Lamb of God\Sacrament\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Lamb of God\Sacrament\AlbumArt_{4C4CE94A-D0CA-432A-954A-823C48DC7027}_Large.jpg" />
+    <Content Include="Images\MusicImages\Lamb of God\Sacrament\AlbumArt_{4C4CE94A-D0CA-432A-954A-823C48DC7027}_Small.jpg" />
+    <Content Include="Images\MusicImages\Lamb of God\Sacrament\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\BBC Sessions Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\BBC Sessions Disc 1\AlbumArt_{5AE7A252-0C83-47B0-B792-6F901276919B}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\BBC Sessions Disc 1\AlbumArt_{5AE7A252-0C83-47B0-B792-6F901276919B}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\BBC Sessions Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\BBC Sessions Disc 2\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\BBC Sessions Disc 2\AlbumArt_{7549A31C-A943-4265-A62F-4B94B9224BC4}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\BBC Sessions Disc 2\AlbumArt_{7549A31C-A943-4265-A62F-4B94B9224BC4}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\BBC Sessions Disc 2\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Coda\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Coda\AlbumArt_{47DBB60D-DCA3-4C62-9B8A-B86183769AE1}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Coda\AlbumArt_{47DBB60D-DCA3-4C62-9B8A-B86183769AE1}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Coda\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Houses of the Holy\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Houses of the Holy\AlbumArt_{855B1142-6895-428B-9D08-B53B69B1CBF7}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Houses of the Holy\AlbumArt_{855B1142-6895-428B-9D08-B53B69B1CBF7}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Houses of the Holy\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\In Through the Out Door\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\In Through the Out Door\AlbumArt_{48CE1F5C-FEBD-4908-A9F5-92489202632D}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\In Through the Out Door\AlbumArt_{48CE1F5C-FEBD-4908-A9F5-92489202632D}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\In Through the Out Door\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin III\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin III\AlbumArt_{3EFE54BB-9E40-498C-843E-CFAF27D967C5}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin III\AlbumArt_{3EFE54BB-9E40-498C-843E-CFAF27D967C5}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin III\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin II\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin II\AlbumArt_{CAFF3AAA-2883-4994-90B0-8334D25BF437}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin II\AlbumArt_{CAFF3AAA-2883-4994-90B0-8334D25BF437}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin II\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin IV\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin IV\AlbumArt_{FBCE1D9F-CCDD-41FE-9882-6F16C354E5E0}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin IV\AlbumArt_{FBCE1D9F-CCDD-41FE-9882-6F16C354E5E0}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin IV\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 1\AlbumArt_{99F023D1-8CBF-4DBE-9889-8214C65AB6A4}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 1\AlbumArt_{99F023D1-8CBF-4DBE-9889-8214C65AB6A4}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 2\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 2\AlbumArt_{DDE1860D-4C5F-422E-A263-9035B05FB3EA}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 2\AlbumArt_{DDE1860D-4C5F-422E-A263-9035B05FB3EA}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 2\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 3\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 3\AlbumArt_{21DB63EC-005A-4B37-8C87-D44865A67FB2}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 3\AlbumArt_{21DB63EC-005A-4B37-8C87-D44865A67FB2}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 3\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 4\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 4\AlbumArt_{43B344E4-4CC2-4F35-94A8-E82F8DE2111C}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 4\AlbumArt_{43B344E4-4CC2-4F35-94A8-E82F8DE2111C}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin [Box Set] Disc 4\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin\AlbumArt_{497E08EC-4C0A-4887-83F7-70188ED2C473}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin\AlbumArt_{497E08EC-4C0A-4887-83F7-70188ED2C473}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Led Zeppelin\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Physical Graffiti Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Physical Graffiti Disc 1\AlbumArt_{A1873BDC-D5DF-4D7A-B1C9-B4B412568D76}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Physical Graffiti Disc 1\AlbumArt_{A1873BDC-D5DF-4D7A-B1C9-B4B412568D76}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Physical Graffiti Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Physical Graffiti Disc 2\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Physical Graffiti Disc 2\AlbumArt_{8AE1DCBC-CED6-4A5F-8768-43718560B3BB}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Physical Graffiti Disc 2\AlbumArt_{8AE1DCBC-CED6-4A5F-8768-43718560B3BB}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Physical Graffiti Disc 2\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Presence\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Presence\AlbumArt_{838E95E2-C3F9-4AD3-BDCD-5F9690A26D9B}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Presence\AlbumArt_{838E95E2-C3F9-4AD3-BDCD-5F9690A26D9B}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\Presence\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\The Song Remains the Same Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\The Song Remains the Same Disc 1\AlbumArt_{982FC95A-8263-41CE-B9C7-2C97D8A48F8D}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\The Song Remains the Same Disc 1\AlbumArt_{982FC95A-8263-41CE-B9C7-2C97D8A48F8D}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\The Song Remains the Same Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\The Song Remains the Same Disc 2\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\The Song Remains the Same Disc 2\AlbumArt_{98A64FB1-C31E-4BAE-99C8-D50068CE67D7}_Large.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\The Song Remains the Same Disc 2\AlbumArt_{98A64FB1-C31E-4BAE-99C8-D50068CE67D7}_Small.jpg" />
+    <Content Include="Images\MusicImages\Led Zeppelin\The Song Remains the Same Disc 2\Folder.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Hybrid Theory\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Hybrid Theory\AlbumArt_{23D1968B-86ED-44CB-AA1A-D4BB5E21AC79}_Large.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Hybrid Theory\AlbumArt_{23D1968B-86ED-44CB-AA1A-D4BB5E21AC79}_Small.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Hybrid Theory\Folder.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Meteora\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Meteora\AlbumArt_{E819938E-EEA7-4097-8957-84C1F7EAFFF1}_Large.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Meteora\AlbumArt_{E819938E-EEA7-4097-8957-84C1F7EAFFF1}_Small.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Meteora\Folder.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Minutes to Midnight\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Minutes to Midnight\AlbumArt_{EA445DCD-D5E0-42C7-B659-8675D562EFB3}_Large.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Minutes to Midnight\AlbumArt_{EA445DCD-D5E0-42C7-B659-8675D562EFB3}_Small.jpg" />
+    <Content Include="Images\MusicImages\Linkin Park\Minutes to Midnight\Folder.jpg" />
+    <Content Include="Images\MusicImages\Lynyrd Skynyrd\What%27s Your Name\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Lynyrd Skynyrd\What%27s Your Name\AlbumArt_{082887D6-7AA4-4CDD-839D-7B7408228BE8}_Large.jpg" />
+    <Content Include="Images\MusicImages\Lynyrd Skynyrd\What%27s Your Name\AlbumArt_{082887D6-7AA4-4CDD-839D-7B7408228BE8}_Small.jpg" />
+    <Content Include="Images\MusicImages\Lynyrd Skynyrd\What%27s Your Name\Folder.jpg" />
+    <Content Include="Images\MusicImages\Macklemore &amp; Ryan Lewis\The Heist\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Macklemore &amp; Ryan Lewis\The Heist\AlbumArt_{62FD1326-4C70-4700-B8FA-F663417AA99F}_Large.jpg" />
+    <Content Include="Images\MusicImages\Macklemore &amp; Ryan Lewis\The Heist\AlbumArt_{62FD1326-4C70-4700-B8FA-F663417AA99F}_Small.jpg" />
+    <Content Include="Images\MusicImages\Macklemore &amp; Ryan Lewis\The Heist\Folder.jpg" />
+    <Content Include="Images\MusicImages\Marilyn Manson\Lest We Forget- The Best Of\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Marilyn Manson\Lest We Forget- The Best Of\AlbumArt_{2F5FAF0E-419E-4F4A-B27D-A659E224BC83}_Large.jpg" />
+    <Content Include="Images\MusicImages\Marilyn Manson\Lest We Forget- The Best Of\AlbumArt_{2F5FAF0E-419E-4F4A-B27D-A659E224BC83}_Small.jpg" />
+    <Content Include="Images\MusicImages\Marilyn Manson\Lest We Forget- The Best Of\Folder.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Countdown to Extinction [Bonus Tracks]\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Countdown to Extinction [Bonus Tracks]\AlbumArt_{7AE7A2C2-326D-48BD-A954-336885322D58}_Large.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Countdown to Extinction [Bonus Tracks]\AlbumArt_{7AE7A2C2-326D-48BD-A954-336885322D58}_Small.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Countdown to Extinction [Bonus Tracks]\Folder.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Peace Sells...But Who%27s Buying-\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Peace Sells...But Who%27s Buying-\AlbumArt_{4611AD8B-411A-481F-95B6-15368F1EA282}_Large.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Peace Sells...But Who%27s Buying-\AlbumArt_{4611AD8B-411A-481F-95B6-15368F1EA282}_Small.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Peace Sells...But Who%27s Buying-\Folder.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\The System Has Failed\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\The System Has Failed\AlbumArt_{A16999D9-C653-449F-9133-B04321F77866}_Large.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\The System Has Failed\AlbumArt_{AC59AE6A-B3FA-4982-92B7-F87EB308143A}_Large.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\The System Has Failed\AlbumArt_{AC59AE6A-B3FA-4982-92B7-F87EB308143A}_Small.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\The System Has Failed\Folder.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Youthanasia\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Youthanasia\AlbumArt_{BE1E9AB1-7D56-4EBF-8185-3E9EF830AEF3}_Large.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Youthanasia\AlbumArt_{BE1E9AB1-7D56-4EBF-8185-3E9EF830AEF3}_Small.jpg" />
+    <Content Include="Images\MusicImages\Megadeth\Youthanasia\Folder.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Death Magnetic\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Death Magnetic\AlbumArt_{A6F010AD-49CE-4654-94A1-F1B7B7CA8583}_Large.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Death Magnetic\AlbumArt_{A6F010AD-49CE-4654-94A1-F1B7B7CA8583}_Small.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Death Magnetic\Folder.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Load\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Load\AlbumArt_{2C2A4827-24DC-4C3D-92D1-B886AB506645}_Large.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Load\AlbumArt_{2C2A4827-24DC-4C3D-92D1-B886AB506645}_Small.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Load\Folder.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Master of Puppets\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Master of Puppets\AlbumArt_{E6614B74-E073-49DC-BF99-C248F6C19FA0}_Large.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Master of Puppets\AlbumArt_{E6614B74-E073-49DC-BF99-C248F6C19FA0}_Small.jpg" />
+    <Content Include="Images\MusicImages\Metallica\Master of Puppets\Folder.jpg" />
+    <Content Include="Images\MusicImages\Metallica\St. Anger Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Metallica\St. Anger Disc 1\AlbumArt_{070AC0B4-DD4A-4131-A8BA-4E1B267D9B06}_Large.jpg" />
+    <Content Include="Images\MusicImages\Metallica\St. Anger Disc 1\AlbumArt_{070AC0B4-DD4A-4131-A8BA-4E1B267D9B06}_Small.jpg" />
+    <Content Include="Images\MusicImages\Metallica\St. Anger Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Nickelback\All the Right Reasons\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Nickelback\All the Right Reasons\AlbumArt_{FF1D2E96-DE54-444F-B327-0339F70B3F0E}_Large.jpg" />
+    <Content Include="Images\MusicImages\Nickelback\All the Right Reasons\AlbumArt_{FF1D2E96-DE54-444F-B327-0339F70B3F0E}_Small.jpg" />
+    <Content Include="Images\MusicImages\Nickelback\All the Right Reasons\Folder.jpg" />
+    <Content Include="Images\MusicImages\Nickelback\Silver Side Up\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Nickelback\Silver Side Up\AlbumArt_{2EFF78DF-4DFB-43E0-A82A-E6ECC51A1DD8}_Large.jpg" />
+    <Content Include="Images\MusicImages\Nickelback\Silver Side Up\AlbumArt_{2EFF78DF-4DFB-43E0-A82A-E6ECC51A1DD8}_Small.jpg" />
+    <Content Include="Images\MusicImages\Nickelback\Silver Side Up\Folder.jpg" />
+    <Content Include="Images\MusicImages\Nightwish\Century Child\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Nightwish\Century Child\AlbumArt_{7C0DE328-0FCE-49B9-8620-ABA1EE5A35EA}_Large.jpg" />
+    <Content Include="Images\MusicImages\Nightwish\Century Child\AlbumArt_{7C0DE328-0FCE-49B9-8620-ABA1EE5A35EA}_Small.jpg" />
+    <Content Include="Images\MusicImages\Nightwish\Century Child\Folder.jpg" />
+    <Content Include="Images\MusicImages\Nine Inch Nails\With Teeth\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Nine Inch Nails\With Teeth\AlbumArt_{99B39C73-54FB-4AB9-A3F7-AAB9886B610F}_Large.jpg" />
+    <Content Include="Images\MusicImages\Nine Inch Nails\With Teeth\AlbumArt_{99B39C73-54FB-4AB9-A3F7-AAB9886B610F}_Small.jpg" />
+    <Content Include="Images\MusicImages\Nine Inch Nails\With Teeth\Folder.jpg" />
+    <Content Include="Images\MusicImages\No Doubt\Tragic Kingdom\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\No Doubt\Tragic Kingdom\AlbumArt_{52A916D1-2BF1-4E17-AC50-03BE7CF8647A}_Large.jpg" />
+    <Content Include="Images\MusicImages\No Doubt\Tragic Kingdom\AlbumArt_{52A916D1-2BF1-4E17-AC50-03BE7CF8647A}_Small.jpg" />
+    <Content Include="Images\MusicImages\No Doubt\Tragic Kingdom\Folder.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Dark Side of the Moon\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Dark Side of the Moon\AlbumArt_{137E5682-10D6-4029-905B-89AB97F73FA7}_Large.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Dark Side of the Moon\AlbumArt_{137E5682-10D6-4029-905B-89AB97F73FA7}_Small.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Dark Side of the Moon\Folder.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Wall Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Wall Disc 1\AlbumArt_{EA10FCC1-D9A4-482E-A565-BF5DF664F60C}_Large.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Wall Disc 1\AlbumArt_{EA10FCC1-D9A4-482E-A565-BF5DF664F60C}_Small.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Wall Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Wall Disc 1\ZuneArt_{A416BC79-B13E-4A3D-8E02-798DD5BCA73E}.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Wall Disc 2\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Wall Disc 2\AlbumArt_{2524788C-A361-4C2A-9F35-7C05F507B591}_Large.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Wall Disc 2\AlbumArt_{2524788C-A361-4C2A-9F35-7C05F507B591}_Small.jpg" />
+    <Content Include="Images\MusicImages\Pink Floyd\The Wall Disc 2\Folder.jpg" />
+    <Content Include="Images\MusicImages\Red Hot Chili Peppers\Blood Sugar Sex Magik\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Red Hot Chili Peppers\Blood Sugar Sex Magik\AlbumArt_{2EA67A22-2D46-4688-BE53-19FAD042B98D}_Large.jpg" />
+    <Content Include="Images\MusicImages\Red Hot Chili Peppers\Blood Sugar Sex Magik\AlbumArt_{2EA67A22-2D46-4688-BE53-19FAD042B98D}_Small.jpg" />
+    <Content Include="Images\MusicImages\Red Hot Chili Peppers\Blood Sugar Sex Magik\Folder.jpg" />
+    <Content Include="Images\MusicImages\Red Hot Chili Peppers\Californication\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Red Hot Chili Peppers\Californication\AlbumArt_{FBB0B888-5D1A-4493-ACDC-D047721BB733}_Large.jpg" />
+    <Content Include="Images\MusicImages\Red Hot Chili Peppers\Californication\AlbumArt_{FBB0B888-5D1A-4493-ACDC-D047721BB733}_Small.jpg" />
+    <Content Include="Images\MusicImages\Red Hot Chili Peppers\Californication\Folder.jpg" />
+    <Content Include="Images\MusicImages\Rob Zombie\Hellbilly Deluxe\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Rob Zombie\Hellbilly Deluxe\AlbumArt_{4979A741-3765-416F-A3C3-AC8C27C608FD}_Large.jpg" />
+    <Content Include="Images\MusicImages\Rob Zombie\Hellbilly Deluxe\AlbumArt_{4979A741-3765-416F-A3C3-AC8C27C608FD}_Small.jpg" />
+    <Content Include="Images\MusicImages\Rob Zombie\Hellbilly Deluxe\Folder.jpg" />
+    <Content Include="Images\MusicImages\Rob Zombie\The Sinister Urge\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Rob Zombie\The Sinister Urge\AlbumArt_{CE5888BA-19DC-45BD-A3A0-7C1FFAD0DC26}_Large.jpg" />
+    <Content Include="Images\MusicImages\Rob Zombie\The Sinister Urge\AlbumArt_{CE5888BA-19DC-45BD-A3A0-7C1FFAD0DC26}_Small.jpg" />
+    <Content Include="Images\MusicImages\Rob Zombie\The Sinister Urge\Folder.jpg" />
+    <Content Include="Images\MusicImages\Serj Tankian\Elect the Dead\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Serj Tankian\Elect the Dead\AlbumArt_{18D6F30F-D839-4C6E-B25E-2419590B94AA}_Large.jpg" />
+    <Content Include="Images\MusicImages\Serj Tankian\Elect the Dead\AlbumArt_{18D6F30F-D839-4C6E-B25E-2419590B94AA}_Small.jpg" />
+    <Content Include="Images\MusicImages\Serj Tankian\Elect the Dead\Folder.jpg" />
+    <Content Include="Images\MusicImages\Seven Kingdoms\Seven Kingdoms\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Seven Kingdoms\Seven Kingdoms\AlbumArt_{2FF2B2D7-4D62-4EBF-AFEB-1FD576C7D273}_Large.jpg" />
+    <Content Include="Images\MusicImages\Seven Kingdoms\Seven Kingdoms\AlbumArt_{2FF2B2D7-4D62-4EBF-AFEB-1FD576C7D273}_Small.jpg" />
+    <Content Include="Images\MusicImages\Seven Kingdoms\Seven Kingdoms\Folder.jpg" />
+    <Content Include="Images\MusicImages\Seven Kingdoms\The Fire Is Mine\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Seven Kingdoms\The Fire Is Mine\AlbumArt_{44B464D5-3B9A-4355-B7CE-3CF60BF6C969}_Large.jpg" />
+    <Content Include="Images\MusicImages\Seven Kingdoms\The Fire Is Mine\AlbumArt_{44B464D5-3B9A-4355-B7CE-3CF60BF6C969}_Small.jpg" />
+    <Content Include="Images\MusicImages\Seven Kingdoms\The Fire Is Mine\Folder.jpg" />
+    <Content Include="Images\MusicImages\Skeletonwitch\Forever Abomination\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Skeletonwitch\Forever Abomination\AlbumArt_{F946C46B-BCCD-4469-B570-C4E7CC455817}_Large.jpg" />
+    <Content Include="Images\MusicImages\Skeletonwitch\Forever Abomination\AlbumArt_{F946C46B-BCCD-4469-B570-C4E7CC455817}_Small.jpg" />
+    <Content Include="Images\MusicImages\Skeletonwitch\Forever Abomination\Folder.jpg" />
+    <Content Include="Images\MusicImages\Skeletonwitch\Serpents Unleashed\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Skeletonwitch\Serpents Unleashed\AlbumArt_{80FFDB33-B3FD-4F0C-96AA-F2A1926727D8}_Large.jpg" />
+    <Content Include="Images\MusicImages\Skeletonwitch\Serpents Unleashed\AlbumArt_{80FFDB33-B3FD-4F0C-96AA-F2A1926727D8}_Small.jpg" />
+    <Content Include="Images\MusicImages\Skeletonwitch\Serpents Unleashed\Folder.jpg" />
+    <Content Include="Images\MusicImages\Soundtrack\Record of Lodoss Wars, Vol. 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Soundtrack\Record of Lodoss Wars, Vol. 1\AlbumArt_{5B1E896C-CB8E-494E-83DB-9F7532122DAE}_Large.jpg" />
+    <Content Include="Images\MusicImages\Soundtrack\Record of Lodoss Wars, Vol. 1\AlbumArt_{5B1E896C-CB8E-494E-83DB-9F7532122DAE}_Small.jpg" />
+    <Content Include="Images\MusicImages\Soundtrack\Record of Lodoss Wars, Vol. 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Soundtrack\Warcraft III- Reign of Chaos\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Soundtrack\Warcraft III- Reign of Chaos\AlbumArt_{CFEAC7E9-81C4-4AC9-BA4B-A021BD677B9A}_Large.jpg" />
+    <Content Include="Images\MusicImages\Soundtrack\Warcraft III- Reign of Chaos\AlbumArt_{CFEAC7E9-81C4-4AC9-BA4B-A021BD677B9A}_Small.jpg" />
+    <Content Include="Images\MusicImages\Soundtrack\Warcraft III- Reign of Chaos\Folder.jpg" />
+    <Content Include="Images\MusicImages\Sublime\Sublime\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Sublime\Sublime\AlbumArt_{72902BA5-19E9-451A-9AAB-CBB8C6E6BCC2}_Large.jpg" />
+    <Content Include="Images\MusicImages\Sublime\Sublime\AlbumArt_{72902BA5-19E9-451A-9AAB-CBB8C6E6BCC2}_Small.jpg" />
+    <Content Include="Images\MusicImages\Sublime\Sublime\Folder.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Hypnotize\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Hypnotize\AlbumArt_{AA6B6CBF-4ADE-4E9D-99DE-F806EDA2056E}_Large.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Hypnotize\AlbumArt_{C9D7644E-29B3-41E0-B586-C01873419894}_Large.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Hypnotize\AlbumArt_{C9D7644E-29B3-41E0-B586-C01873419894}_Small.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Hypnotize\Folder.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Mezmerize\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Mezmerize\AlbumArt_{00716D5D-EEDA-4DAD-85A2-7F6F9D359A3A}_Large.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Mezmerize\AlbumArt_{00716D5D-EEDA-4DAD-85A2-7F6F9D359A3A}_Small.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Mezmerize\Folder.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Steal This Album!\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Steal This Album!\AlbumArt_{E7791A4E-5D33-4A2B-9505-6C1CFC41DDB0}_Large.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Steal This Album!\AlbumArt_{E7791A4E-5D33-4A2B-9505-6C1CFC41DDB0}_Small.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Steal This Album!\Folder.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\System of a Down\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\System of a Down\AlbumArt_{55A0B26B-F698-40D2-8BF0-AB51A44FE83E}_Large.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\System of a Down\AlbumArt_{55A0B26B-F698-40D2-8BF0-AB51A44FE83E}_Small.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\System of a Down\Folder.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Toxicity\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Toxicity\AlbumArt_{CE1478DB-515D-4CB7-BFFD-B3C7B2EDC46E}_Large.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Toxicity\AlbumArt_{CE1478DB-515D-4CB7-BFFD-B3C7B2EDC46E}_Small.jpg" />
+    <Content Include="Images\MusicImages\System of a Down\Toxicity\Folder.jpg" />
+    <Content Include="Images\MusicImages\Tool\Lateralus\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Tool\Lateralus\AlbumArt_{CDDCE414-AAAD-4800-9F0C-CE7F17B9F6EB}_Large.jpg" />
+    <Content Include="Images\MusicImages\Tool\Lateralus\AlbumArt_{CDDCE414-AAAD-4800-9F0C-CE7F17B9F6EB}_Small.jpg" />
+    <Content Include="Images\MusicImages\Tool\Lateralus\Folder.jpg" />
+    <Content Include="Images\MusicImages\Tool\Undertow\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Tool\Undertow\AlbumArt_{9446359B-3C61-4FF2-B03E-19BC23767990}_Large.jpg" />
+    <Content Include="Images\MusicImages\Tool\Undertow\AlbumArt_{9446359B-3C61-4FF2-B03E-19BC23767990}_Small.jpg" />
+    <Content Include="Images\MusicImages\Tool\Undertow\Folder.jpg" />
+    <Content Include="Images\MusicImages\Trivium\Shogun\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Trivium\Shogun\AlbumArt_{B243EF14-DAE7-40D8-860E-7164A782958E}_Large.jpg" />
+    <Content Include="Images\MusicImages\Trivium\Shogun\AlbumArt_{B243EF14-DAE7-40D8-860E-7164A782958E}_Small.jpg" />
+    <Content Include="Images\MusicImages\Trivium\Shogun\Folder.jpg" />
+    <Content Include="Images\MusicImages\Type O Negative\World Coming Down\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Type O Negative\World Coming Down\AlbumArt_{3E978594-C36F-4884-83B0-C4239833129B}_Large.jpg" />
+    <Content Include="Images\MusicImages\Type O Negative\World Coming Down\AlbumArt_{3E978594-C36F-4884-83B0-C4239833129B}_Small.jpg" />
+    <Content Include="Images\MusicImages\Type O Negative\World Coming Down\Folder.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Classic Heep- An Anthology Disc 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Classic Heep- An Anthology Disc 1\AlbumArt_{6F98E864-3FDD-426A-BEEE-8E0BCCC3DEDC}_Large.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Classic Heep- An Anthology Disc 1\AlbumArt_{6F98E864-3FDD-426A-BEEE-8E0BCCC3DEDC}_Small.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Classic Heep- An Anthology Disc 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Classic Heep- An Anthology Disc 2\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Classic Heep- An Anthology Disc 2\AlbumArt_{06BC98F1-E6D2-4041-AD1B-045F0ECEB68B}_Large.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Classic Heep- An Anthology Disc 2\AlbumArt_{06BC98F1-E6D2-4041-AD1B-045F0ECEB68B}_Small.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Classic Heep- An Anthology Disc 2\Folder.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Demons and Wizards\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Demons and Wizards\AlbumArt_{CD8A1423-AFE8-4377-86B3-BC07C6D21CF7}_Large.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Demons and Wizards\AlbumArt_{CD8A1423-AFE8-4377-86B3-BC07C6D21CF7}_Small.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Demons and Wizards\Folder.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Look at Yourself\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Look at Yourself\AlbumArt_{26B1BAAA-D65F-48B5-A527-CA3A1953B61A}_Large.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Look at Yourself\AlbumArt_{26B1BAAA-D65F-48B5-A527-CA3A1953B61A}_Small.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Look at Yourself\Folder.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Salisbury\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Salisbury\AlbumArt_{E37F269F-EDB5-40DD-BA8B-D90EE13924D2}_Large.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Salisbury\AlbumArt_{E37F269F-EDB5-40DD-BA8B-D90EE13924D2}_Small.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Salisbury\Folder.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Spellbinder\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Spellbinder\AlbumArt_{0F02AFE1-F653-45E6-910C-54B328DEA06F}_Large.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Spellbinder\AlbumArt_{0F02AFE1-F653-45E6-910C-54B328DEA06F}_Small.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Spellbinder\Folder.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\The Magician%27s Birthday\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\The Magician%27s Birthday\AlbumArt_{B838F5BF-904F-4F29-8375-1864A0E8FFF7}_Large.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\The Magician%27s Birthday\AlbumArt_{B838F5BF-904F-4F29-8375-1864A0E8FFF7}_Small.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\The Magician%27s Birthday\Folder.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Uriah Heep Live\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Uriah Heep Live\AlbumArt_{D021D0C7-B65A-4F09-A7BE-A6B5134D148D}_Large.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Uriah Heep Live\AlbumArt_{D021D0C7-B65A-4F09-A7BE-A6B5134D148D}_Small.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Uriah Heep Live\Folder.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Wonderworld [Bonus Track]\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Wonderworld [Bonus Track]\AlbumArt_{F6C29FCA-5986-4303-80B3-D4891E159CCE}_Large.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Wonderworld [Bonus Track]\AlbumArt_{F6C29FCA-5986-4303-80B3-D4891E159CCE}_Small.jpg" />
+    <Content Include="Images\MusicImages\Uriah Heep\Wonderworld [Bonus Track]\Folder.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Dance of the Celts\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Dance of the Celts\AlbumArt_{87FFA66F-06BE-4ED7-A2BA-B31DCFBBB8C9}_Large.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Dance of the Celts\AlbumArt_{87FFA66F-06BE-4ED7-A2BA-B31DCFBBB8C9}_Small.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Dance of the Celts\Folder.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Encomium- A Tribute to Led Zeppelin\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Encomium- A Tribute to Led Zeppelin\AlbumArt_{1D26D939-E587-40E2-8C2D-5F9394D46523}_Large.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Encomium- A Tribute to Led Zeppelin\AlbumArt_{1D26D939-E587-40E2-8C2D-5F9394D46523}_Small.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Encomium- A Tribute to Led Zeppelin\Folder.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Nativity in Black, Vol. 2- A Tribute to Black Sabbath\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Nativity in Black, Vol. 2- A Tribute to Black Sabbath\AlbumArt_{820EB36C-B4DD-4DF3-9E08-81BACD081663}_Large.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Nativity in Black, Vol. 2- A Tribute to Black Sabbath\AlbumArt_{820EB36C-B4DD-4DF3-9E08-81BACD081663}_Small.jpg" />
+    <Content Include="Images\MusicImages\Various Artists\Nativity in Black, Vol. 2- A Tribute to Black Sabbath\Folder.jpg" />
+    <Content Include="Images\MusicImages\We Came as Romans\To Plant a Seed\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\We Came as Romans\To Plant a Seed\AlbumArt_{4B6AB0D9-227B-4498-8CFC-6FBAFE71326B}_Large.jpg" />
+    <Content Include="Images\MusicImages\We Came as Romans\To Plant a Seed\AlbumArt_{4B6AB0D9-227B-4498-8CFC-6FBAFE71326B}_Small.jpg" />
+    <Content Include="Images\MusicImages\We Came as Romans\To Plant a Seed\Folder.jpg" />
+    <Content Include="Images\MusicImages\We Came as Romans\Understanding What We%27ve Grown to Be\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\We Came as Romans\Understanding What We%27ve Grown to Be\AlbumArt_{09E0AF84-C4BF-49F8-9C04-D1A00B13891A}_Large.jpg" />
+    <Content Include="Images\MusicImages\We Came as Romans\Understanding What We%27ve Grown to Be\AlbumArt_{09E0AF84-C4BF-49F8-9C04-D1A00B13891A}_Small.jpg" />
+    <Content Include="Images\MusicImages\We Came as Romans\Understanding What We%27ve Grown to Be\Folder.jpg" />
+    <Content Include="Images\MusicImages\White Zombie\Astro-Creep- 2000\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\White Zombie\Astro-Creep- 2000\AlbumArt_{6E7B3E45-6CAD-4CD9-B556-448EFE151525}_Large.jpg" />
+    <Content Include="Images\MusicImages\White Zombie\Astro-Creep- 2000\AlbumArt_{6E7B3E45-6CAD-4CD9-B556-448EFE151525}_Small.jpg" />
+    <Content Include="Images\MusicImages\White Zombie\Astro-Creep- 2000\Folder.jpg" />
+    <Content Include="Images\MusicImages\White Zombie\La Sexorcisto- Devil Music, Vol. 1\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\White Zombie\La Sexorcisto- Devil Music, Vol. 1\AlbumArt_{18A24CAB-5F93-413C-A13C-10E46D7F444A}_Large.jpg" />
+    <Content Include="Images\MusicImages\White Zombie\La Sexorcisto- Devil Music, Vol. 1\AlbumArt_{18A24CAB-5F93-413C-A13C-10E46D7F444A}_Small.jpg" />
+    <Content Include="Images\MusicImages\White Zombie\La Sexorcisto- Devil Music, Vol. 1\Folder.jpg" />
+    <Content Include="Images\MusicImages\Wolfsheim\Spectators\AlbumArtSmall.jpg" />
+    <Content Include="Images\MusicImages\Wolfsheim\Spectators\AlbumArt_{933D45BA-6495-4F97-A484-5059728FBF69}_Large.jpg" />
+    <Content Include="Images\MusicImages\Wolfsheim\Spectators\AlbumArt_{933D45BA-6495-4F97-A484-5059728FBF69}_Small.jpg" />
+    <Content Include="Images\MusicImages\Wolfsheim\Spectators\Folder.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\modernizr-2.7.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-2.1.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MusicApp.Data\MusicApp.Data.csproj">
+      <Project>{e824fad6-f933-49b9-b0bb-8927a664ad70}</Project>
+      <Name>MusicApp.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59403</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53099/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
